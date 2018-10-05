@@ -1,6 +1,6 @@
 package com.shawn.monitor;
 
-import lombok.extern.apachecommons.CommonsLog;
+//import lombok.extern.apachecommons.CommonsLog;
 import org.apache.commons.lang3.time.StopWatch;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.Signature;
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 /**
  * @author Xiaoyue Xiao
  */
-@CommonsLog
+//@CommonsLog
 @Aspect
 @Component
 public class PerformanceMonitor {
@@ -46,9 +46,9 @@ public class PerformanceMonitor {
         Signature signature = proceedingJoinPoint.getSignature();
         String infoString = "[" + signature.toShortString() + "][Elapsed time: " + elapsedTime + " s]";
         if (elapsedTime > 1) {
-            log.error(infoString + "[Note that it's time consuming!]");
+        	System.out.println(infoString + "[Note that it's time consuming!]");
         } else {
-            log.info(infoString);
+        	System.out.println(infoString);
         }
 
         // Return the result

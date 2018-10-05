@@ -1,7 +1,7 @@
 package com.shawn.monitor;
 
 import com.shawn.web.exception.ServerInternalErrorException;
-import lombok.extern.apachecommons.CommonsLog;
+//import lombok.extern.apachecommons.CommonsLog;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.Signature;
 import org.aspectj.lang.annotation.AfterThrowing;
@@ -14,7 +14,7 @@ import java.util.Arrays;
 /**
  * @author Xiaoyue Xiao
  */
-@CommonsLog
+//@CommonsLog
 @Aspect
 @Component
 public class ServiceMonitor {
@@ -39,7 +39,7 @@ public class ServiceMonitor {
         // Log the situation where exception happened
         Object[] args = joinPoint.getArgs();
         Signature signature = joinPoint.getSignature();
-        log.error("[" + signature.toShortString() + "]" + Arrays.toString(args) + "[" + e.toString() + "]");
+        System.out.println("[" + signature.toShortString() + "]" + Arrays.toString(args) + "[" + e.toString() + "]");
 
         // Throw a new server internal error exception
         throw new ServerInternalErrorException();

@@ -1,8 +1,6 @@
 package com.shawn.model.dto;
 
 import com.shawn.model.entity.User;
-import lombok.Getter;
-import lombok.ToString;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.security.core.GrantedAuthority;
@@ -16,8 +14,6 @@ import java.util.Set;
 /**
  * @author Xiaoyue Xiao
  */
-@Getter
-@ToString
 public class CustomUserDetails extends User implements UserDetails {
 
     private static final long serialVersionUID = 1702923242319850756L;
@@ -44,4 +40,29 @@ public class CustomUserDetails extends User implements UserDetails {
         }
     }
 
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		return authorities;
+
+	}
+
+	@Override
+	public boolean isAccountNonExpired() {
+		return accountNonExpired;
+	}
+
+	@Override
+	public boolean isAccountNonLocked() {
+		return accountNonLocked;
+	}
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		return credentialsNonExpired;
+	}
+
+	@Override
+	public boolean isEnabled() {
+		return enabled;
+	}
 }
